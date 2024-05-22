@@ -1,0 +1,20 @@
+function [xd, Vx] = limit_cycle_DS(x, lcCenter, lcSize)
+    if(nargin<3)
+        lcSize = [1;1];
+    end
+    if(nargin<2)
+        lcCenter = [0;0];
+    end
+    
+    x(1,:) = x(1,:) - lcCenter(1);
+    x(2,:) = x(2,:) - lcCenter(2);
+    
+    r2 = x(1,:).^2 + x(2,:).^2;
+    
+    xd(1,:) =  x(2,:) - x(1,:).*(r2 - lcSize(1));
+    xd(2,:) = -x(1,:) - x(2,:).*(r2 - lcSize(2));
+    
+    if(nargout == 2)
+        Vx = [x(1,:); x(2,:)]; % Because V = 0.5*r2;
+    end
+end
