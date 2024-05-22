@@ -18,7 +18,6 @@ Please acknowledge the authors in any academic publication that used parts of th
   year={2018},
   pages={6574--6581}
 }
-
 ```
 
 ## Third-party material
